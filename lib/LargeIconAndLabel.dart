@@ -4,10 +4,6 @@ import 'BMIThemeColors.dart';
 
 const iconSize = 80.0;
 const iconLabelGap = 20.0;
-const labelStyle = TextStyle(
-  fontSize: 18.0,
-  color: BMIThemeColors.grey,
-);
 
 class LargeIconAndLabel extends StatelessWidget {
   LargeIconAndLabel({
@@ -32,7 +28,7 @@ class LargeIconAndLabel extends StatelessWidget {
         ),
         Text(
           this.text,
-          style: labelStyle,
+          style: BMITheme.labelTextStyle,
         )
       ],
     );

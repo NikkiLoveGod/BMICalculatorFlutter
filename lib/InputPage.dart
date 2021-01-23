@@ -17,10 +17,17 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
+  int height = 180;
 
   void updateGender(Gender gender) {
     setState(() {
       this.selectedGender = gender;
+    });
+  }
+
+  void updateHeight(double height) {
+    setState(() {
+      this.height = height.toInt();
     });
   }
 
@@ -37,30 +44,26 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
+                  child: Well(
                     onTap: () => updateGender(Gender.male),
-                    child: Well(
-                      color: this.selectedGender == Gender.male
-                          ? BMIThemeColors.purple300
-                          : BMIThemeColors.purple400,
-                      child: LargeIconAndLabel(
-                        icon: FontAwesomeIcons.mars,
-                        text: "MALE",
-                      ),
+                    color: this.selectedGender == Gender.male
+                        ? BMITheme.purple300
+                        : BMITheme.purple400,
+                    child: LargeIconAndLabel(
+                      icon: FontAwesomeIcons.mars,
+                      text: "MALE",
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
+                  child: Well(
                     onTap: () => updateGender(Gender.female),
-                    child: Well(
-                      color: this.selectedGender == Gender.female
-                          ? BMIThemeColors.purple300
-                          : BMIThemeColors.purple400,
-                      child: LargeIconAndLabel(
-                        icon: FontAwesomeIcons.venus,
-                        text: "FEMALE",
-                      ),
+                    color: this.selectedGender == Gender.female
+                        ? BMITheme.purple300
+                        : BMITheme.purple400,
+                    child: LargeIconAndLabel(
+                      icon: FontAwesomeIcons.venus,
+                      text: "FEMALE",
                     ),
                   ),
                 ),
@@ -69,7 +72,47 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: Well(
-              color: BMIThemeColors.purple300,
+              color: BMITheme.purple300,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'HEIGHT',
+                    style: BMITheme.labelTextStyle,
+                  ),
+                  SizedBox(height: 15.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        height.toString(),
+                        style: BMITheme.unitTextStyle,
+                      ),
+                      Text('cm', style: BMITheme.labelTextStyle),
+                    ],
+                  ),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                        activeTrackColor: Colors.white,
+                        inactiveTrackColor: BMITheme.grey,
+                        trackHeight: 2.0,
+                        thumbColor: BMITheme.pink,
+                        overlayColor: BMITheme.pinkA16,
+                        thumbShape:
+                            RoundSliderThumbShape(enabledThumbRadius: 15.00),
+                        overlayShape:
+                            RoundSliderOverlayShape(overlayRadius: 30.0)),
+                    child: Slider(
+                      value: this.height.toDouble(),
+                      onChanged: updateHeight,
+                      min: 100,
+                      max: 230,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
@@ -77,12 +120,12 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: Well(
-                    color: BMIThemeColors.purple300,
+                    color: BMITheme.purple300,
                   ),
                 ),
                 Expanded(
                   child: Well(
-                    color: BMIThemeColors.purple300,
+                    color: BMITheme.purple300,
                   ),
                 ),
               ],

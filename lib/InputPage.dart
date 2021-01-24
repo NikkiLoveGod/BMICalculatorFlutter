@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'BMIThemeColors.dart';
 import 'LargeIconAndLabel.dart';
+import 'NumEditor.dart';
 import 'Well.dart';
 
 enum Gender {
@@ -18,6 +19,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 180;
+  int weight = 62;
+  int age = 20;
 
   void updateGender(Gender gender) {
     setState(() {
@@ -121,11 +124,31 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: Well(
                     color: BMITheme.purple300,
+                    child: NumEditor(
+                      onIncrease: () => setState(() {
+                        this.weight++;
+                      }),
+                      onDecrease: () => setState(() {
+                        this.weight--;
+                      }),
+                      label: 'WEIGHT',
+                      num: this.weight,
+                    ),
                   ),
                 ),
                 Expanded(
                   child: Well(
                     color: BMITheme.purple300,
+                    child: NumEditor(
+                      onIncrease: () => setState(() {
+                        this.age++;
+                      }),
+                      onDecrease: () => setState(() {
+                        this.age--;
+                      }),
+                      label: 'AGE',
+                      num: this.age,
+                    ),
                   ),
                 ),
               ],

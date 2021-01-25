@@ -14,6 +14,8 @@ class BMITheme {
 
   static const Color grey = Color(0xFF8D8E98);
 
+  static const Color green = Color(0xFF22E67B);
+
   static const labelTextStyle = TextStyle(
     fontSize: 18.0,
     color: BMITheme.grey,
@@ -22,5 +24,15 @@ class BMITheme {
     fontSize: 50.0,
     color: Colors.white,
     fontWeight: FontWeight.w900,
+  );
+  static const boldTextStyle = TextStyle(
+    fontSize: 18.0,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+  );
+  static const headingTextStyle = TextStyle(
+    fontSize: 40.0,
+    fontWeight: FontWeight.w900,
+    color: Colors.white,
   );
 }

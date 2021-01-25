@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/BMIThemeColors.dart';
+import '../utils/bmi_theme.dart';
 
 const iconSize = 80.0;
 const iconLabelGap = 20.0;

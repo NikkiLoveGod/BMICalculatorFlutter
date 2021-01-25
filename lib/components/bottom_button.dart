@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/BMIThemeColors.dart';
+import '../utils/bmi_theme.dart';
 
 class BottomButton extends StatelessWidget {
   BottomButton({this.onPress, this.text});

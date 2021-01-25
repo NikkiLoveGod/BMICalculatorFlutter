@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../utils/BMIThemeColors.dart';
-import 'RoundIconButton.dart';
+import '../utils/bmi_theme.dart';
+import 'round_icon_button.dart';
 
 class NumEditor extends StatelessWidget {
   NumEditor({

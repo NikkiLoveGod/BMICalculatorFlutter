@@ -1,4 +1,5 @@
 # BMI Calculator 💪
 
-Learning to use Theming and screens in Flutter.
+Learning to use Themes and screens in Flutter.
 
+![](https://i.imgur.com/6E6mjYB.gif)

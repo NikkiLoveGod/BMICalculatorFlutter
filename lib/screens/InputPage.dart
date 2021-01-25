@@ -1,11 +1,11 @@
-import 'package:bmi_calculator/BottomButton.dart';
+import 'file:///C:/Users/Sami/dev/bmi-calculator-flutter/lib/components/BottomButton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'BMIThemeColors.dart';
-import 'LargeIconAndLabel.dart';
-import 'NumEditor.dart';
-import 'Well.dart';
+import '../utils/BMIThemeColors.dart';
+import '../components/LargeIconAndLabel.dart';
+import '../components/NumEditor.dart';
+import '../components/Well.dart';
 
 enum Gender {
   male,

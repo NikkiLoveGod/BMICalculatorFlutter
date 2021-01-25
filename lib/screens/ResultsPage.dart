@@ -1,8 +1,8 @@
-import 'package:bmi_calculator/BMIThemeColors.dart';
+import 'package:bmi_calculator/utils/BMIThemeColors.dart';
 import 'package:flutter/material.dart';
 
-import 'BottomButton.dart';
-import 'Well.dart';
+import '../components/BottomButton.dart';
+import '../components/Well.dart';
 
 class ResultsPage extends StatefulWidget {
   @override

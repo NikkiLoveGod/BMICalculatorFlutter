@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'BMIThemeColors.dart';
-import 'InputPage.dart';
-import 'ResultsPage.dart';
+import 'utils/BMIThemeColors.dart';
+import 'screens/InputPage.dart';
+import 'screens/ResultsPage.dart';
 
 void main() => runApp(BMICalculator());
 

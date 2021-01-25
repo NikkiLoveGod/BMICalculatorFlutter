@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/BMIThemeColors.dart';
+import 'package:bmi_calculator/utils/BMIThemeColors.dart';
 import 'package:flutter/material.dart';
 
 class RoundIconButton extends StatelessWidget {

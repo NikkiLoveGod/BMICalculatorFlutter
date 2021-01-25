@@ -1,4 +1,6 @@
+import 'package:bmi_calculator/RoundIconButton.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'BMIThemeColors.dart';
 
@@ -31,16 +33,16 @@ class NumEditor extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FloatingActionButton(
+            RoundIconButton(
               onPressed: this.onDecrease,
-              child: Icon(Icons.remove),
+              icon: FontAwesomeIcons.minus,
             ),
             SizedBox(
               width: 15.0,
             ),
-            FloatingActionButton(
+            RoundIconButton(
               onPressed: this.onIncrease,
-              child: Icon(Icons.add),
+              icon: FontAwesomeIcons.plus,
             ),
           ],
         )

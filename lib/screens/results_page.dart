@@ -44,7 +44,8 @@ class ResultsPage extends StatelessWidget {
                       children: [
                         Text(
                           args.bmiCalculator.getClassification(),
-                          style: BMITheme.labelTextStyle.copyWith(
+                          style: TextStyle(
+                            fontSize: 18.0,
                             color: BMITheme.green,
                             fontWeight: FontWeight.w900,
                           ),

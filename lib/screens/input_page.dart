@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/components/large_icon_and_label.dart';
 import 'package:bmi_calculator/components/num_editor.dart';
+import 'package:bmi_calculator/components/themed_slider.dart';
 import 'package:bmi_calculator/components/well.dart';
 import 'package:bmi_calculator/screens/results_page.dart';
 import 'package:bmi_calculator/utils/bmi_calculator.dart';
@@ -35,6 +36,21 @@ class _InputPageState extends State<InputPage> {
     setState(() {
       this.height = height.toInt();
     });
+  }
+
+  void displayResults(BuildContext context) {
+    BmiCalculator calc = BmiCalculator(
+      height: this.height,
+      weight: this.weight,
+    );
+
+    final resultsArguments = ResultsPageArguments(bmiCalculator: calc);
+
+    Navigator.pushNamed(
+      context,
+      BMIRoutes.results,
+      arguments: resultsArguments,
+    );
   }
 
   @override
@@ -99,23 +115,11 @@ class _InputPageState extends State<InputPage> {
                       Text('cm', style: BMITheme.labelTextStyle),
                     ],
                   ),
-                  SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                        activeTrackColor: Colors.white,
-                        inactiveTrackColor: BMITheme.grey,
-                        trackHeight: 2.0,
-                        thumbColor: BMITheme.pink,
-                        overlayColor: BMITheme.pinkA16,
-                        thumbShape:
-                            RoundSliderThumbShape(enabledThumbRadius: 15.00),
-                        overlayShape:
-                            RoundSliderOverlayShape(overlayRadius: 30.0)),
-                    child: Slider(
-                      value: this.height.toDouble(),
-                      onChanged: updateHeight,
-                      min: 100,
-                      max: 230,
-                    ),
+                  ThemedSlider(
+                    value: this.height.toDouble(),
+                    onChanged: updateHeight,
+                    min: 100,
+                    max: 230,
                   ),
                 ],
               ),
@@ -147,6 +151,10 @@ class _InputPageState extends State<InputPage> {
                         this.age++;
                       }),
                       onDecrease: () => setState(() {
+                        if (this.age <= 18) {
+                          return;
+                        }
+
                         this.age--;
                       }),
                       label: 'AGE',
@@ -158,21 +166,7 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           BottomButton(
-            onPress: () {
-              BmiCalculator calc = BmiCalculator(
-                height: this.height,
-                weight: this.weight,
-              );
-
-              final resultsArguments =
-                  ResultsPageArguments(bmiCalculator: calc);
-
-              return Navigator.pushNamed(
-                context,
-                BMIRoutes.results,
-                arguments: resultsArguments,
-              );
-            },
+            onPress: () => this.displayResults(context),
             text: 'CALCULATE YOUR BMI',
           )
         ],

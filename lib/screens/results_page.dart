@@ -1,33 +1,21 @@
+import 'package:bmi_calculator/utils/bmi_calculator.dart';
 import 'package:bmi_calculator/utils/bmi_theme.dart';
 import 'package:flutter/material.dart';
 
 import '../components/bottom_button.dart';
 import '../components/well.dart';
 
-class ResultsPage extends StatefulWidget {
-  @override
-  _ResultsPageState createState() => _ResultsPageState();
+class ResultsPageArguments {
+  ResultsPageArguments({@required this.bmiCalculator});
+
+  final BmiCalculator bmiCalculator;
 }
 
-class _ResultsPageState extends State<ResultsPage> {
-  Widget getBmiClassification() {
-    return Text(
-      'OVERWEIGHT',
-      style: BMITheme.labelTextStyle.copyWith(
-        color: BMITheme.green,
-        fontWeight: FontWeight.w900,
-      ),
-    );
-  }
-
-  String getBmiDescription() {
-    return 'You have a higher than normal body weight. Try to exercise more.';
-  }
-
-  double bmi = 28.443425;
-
+class ResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ResultsPageArguments args = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -55,16 +43,22 @@ class _ResultsPageState extends State<ResultsPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        getBmiClassification(),
                         Text(
-                          this.bmi.toStringAsPrecision(3),
+                          args.bmiCalculator.getClassification(),
+                          style: BMITheme.labelTextStyle.copyWith(
+                            color: BMITheme.green,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        Text(
+                          args.bmiCalculator.getBmi(),
                           style: TextStyle(
                             fontSize: 110.0,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
                         Text(
-                          getBmiDescription(),
+                          args.bmiCalculator.getDescription(),
                           textAlign: TextAlign.center,
                           style: BMITheme.labelTextStyle,
                         )

@@ -1,8 +1,7 @@
+import 'package:bmi_calculator/components/round_icon_button.dart';
+import 'package:bmi_calculator/utils/bmi_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../utils/bmi_theme.dart';
-import 'round_icon_button.dart';
 
 class NumEditor extends StatelessWidget {
   NumEditor({

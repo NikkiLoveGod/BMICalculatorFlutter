@@ -1,9 +1,8 @@
+import 'package:bmi_calculator/components/bottom_button.dart';
+import 'package:bmi_calculator/components/well.dart';
 import 'package:bmi_calculator/utils/bmi_calculator.dart';
 import 'package:bmi_calculator/utils/bmi_theme.dart';
 import 'package:flutter/material.dart';
-
-import '../components/bottom_button.dart';
-import '../components/well.dart';
 
 class ResultsPageArguments {
   ResultsPageArguments({@required this.bmiCalculator});

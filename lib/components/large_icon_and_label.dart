@@ -1,6 +1,5 @@
+import 'package:bmi_calculator/utils/bmi_theme.dart';
 import 'package:flutter/material.dart';
-
-import '../utils/bmi_theme.dart';
 
 const iconSize = 80.0;
 const iconLabelGap = 20.0;

@@ -1,6 +1,5 @@
+import 'package:bmi_calculator/utils/bmi_theme.dart';
 import 'package:flutter/material.dart';
-
-import '../utils/bmi_theme.dart';
 
 class BottomButton extends StatelessWidget {
   BottomButton({this.onPress, this.text});
